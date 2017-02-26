@@ -49,12 +49,23 @@ public class Game {
 		Scanner keyboard = new Scanner(System.in);
 		do{
 
+			// This will output the game content to the screen
 			Scripts.gameDisplay(game);
-			isRunning = Utility.gameMath(game);
+			// This will do all the math required each turn
+			Utility.gameMath(game);
+			
+			// This will check to see if the game has been lost
+			isRunning = Utility.gameLost(game);
+			// This will get the user's input and run appropriate calculations based on that input
 			input = keyboard.nextLine();
 			Utility.gameSelect(input, game);
 			
-		}while(isRunning && !input.equals("exit"));
+			/* This code will check to see if the user has "won" the tier. If so, upgrade the planet.
+			 * If they are on tier 3, produce win message.
+			 */
+			game = Utility.planetUpgrade(game);
+			
+		}while(isRunning && !input.equals("exit") && (game != null));
 		Utility.clear();
 		// If the player lost, delete the current instance of the game.
 		if(isRunning == false){

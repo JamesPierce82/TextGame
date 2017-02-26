@@ -222,7 +222,7 @@ public class Utility {
 	 * 
 	 * @param game is the current instance of the game
 	 */
-	public static boolean gameMath(Planet game) {
+	public static void gameMath(Planet game) {
 		
 		int propertyChange = 0;
 		
@@ -282,22 +282,54 @@ public class Utility {
 			
 		}
 		
-		//TODO: Add a method to check if the user has achieved certain ratings, increase tier if they do.
 		
+		
+	}
+	
+	public static boolean gameLost(Planet game) {
+		// End game if any of the values reaches <= 0
+				if(game.getAir() <= 1 || game.getAnimals() <= 1 || game.getCarnivores() <= 1
+				|| game.getHerbivores() <= 1 || game.getHumans() <= 1 || game.getLand() <= 1
+				|| game.getPlants() <= 1 || game.getWater() <= 1){
+					
+					Utility.clear();
+					Scripts.gameOver();
+					return false;
+					
+				} else {
+					return true;
+				}
+	}
+	
+	//TODO: If refatoring, this should probably be a method in planet and just upgrade the existing planet
+	// As I'm Choosing to be lazy and focus on completion, this won't be a worry for now as it works as intended.
+	
+	/**
+	 * Description: This will check to see if the planet meets the criteria to upgrade the planet.
+	 * @param game is the current instance of the game
+	 * @return
+	 */
+	public static Planet planetUpgrade(Planet game) {
+		
+		// Tier 1 upgrade. If the user meets 50 in each property, upgrade from tier 1 to tier 2.
+		if(game.getTier() == 1 && game.getAir() >= 50 && game.getLand() >= 50 && game.getWater() >= 50){
+			game = new Planet(2);
+			//TODO Change this to a script message instead.
+			System.out.println("You upgraded Terra junior from Tier 1 to Tier 2. Congratulations!");
+		// Tier 2 upgrade. If the user meets 50 in each property, upgrade from tier 2 to tier 3.
+		} else if(game.getTier() == 2 && game.getCarnivores() >= 50 && game.getHerbivores() >= 50 && game.getPlants() >= 50 && game.getWater() >= 50) {
+			game = new Planet(3);
+			//TODO Change this to a script message instead.
+			System.out.println("You upgraded Terra Junior from Tier 2 to Tier 3. Congratulations!");
+		// If the user reaches 50 in each property at tier 3, they win the game. Run the WinGame script.
+		} else if(game.getTier() == 3 && game.getAir() >= 50 && game.getAnimals() >= 50 && game.getHumans() >= 50 && game.getPlants() >= 50 && game.getWater() >= 50) {
+			game = null;
+			//TODO Change this to a script message instead.
+			System.out.println("You reached the end of the game.");
+		}
 		//TODO: As with the comment above, create new planet at specific tier.
 		
-		// End game if any of the values reaches <= 0
-		if(game.getAir() <= 1 || game.getAnimals() <= 1 || game.getCarnivores() <= 1
-		|| game.getHerbivores() <= 1 || game.getHumans() <= 1 || game.getLand() <= 1
-		|| game.getPlants() <= 1 || game.getWater() <= 1){
-			
-			Utility.clear();
-			Scripts.gameOver();
-			return false;
-			
-		} else {
-			return true;
-		}
+		return game;
 		
 	}
 
