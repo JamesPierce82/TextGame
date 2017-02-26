@@ -93,7 +93,8 @@ public class Utility {
 		case "1":
 			/* Creates a new game using empty constructor.
 			 * This creates the default game, which uses easy difficulty.
-			 */
+			 * 
+			 */   
 			game = new Planet();
 			game = Game.run(game);
 			break;
