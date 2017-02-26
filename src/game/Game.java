@@ -43,7 +43,7 @@ public class Game {
 	 * 
 	 * @param game is the current instance of the game
 	 */
-	public static void run(Planet game) {
+	public static Planet run(Planet game) {
 		String input = "";
 		boolean isRunning = true;
 		Scanner keyboard = new Scanner(System.in);
@@ -60,6 +60,7 @@ public class Game {
 		if(isRunning == false){
 			game = null;
 		}
+		return game;
 	}
 	
 	

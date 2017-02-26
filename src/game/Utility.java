@@ -95,7 +95,7 @@ public class Utility {
 			 * This creates the default game, which uses easy difficulty.
 			 */
 			game = new Planet();
-			Game.run(game);
+			game = Game.run(game);
 			break;
 		case "2":
 			// Load a game
@@ -110,7 +110,7 @@ public class Utility {
 			Utility.stub("Open Options");
 			break;
 		case "6":
-			Game.run(game);
+			game = Game.run(game);
 			break;
 		default:
 			// Default
