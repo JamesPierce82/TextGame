@@ -60,10 +60,10 @@ public class Planet {
 		this.setAll(BASE_STATS * this.difficulty);
 	}
 	
-	// Tier Constructor
-		public Planet(int tier){
+	// Tier and Difficulty Constructor
+		public Planet(int tier, int difficulty){
 			this.tier = tier;
-			this.difficulty = 3;
+			this.difficulty = difficulty;
 			this.setAll(BASE_STATS * this.difficulty);
 		}
 	

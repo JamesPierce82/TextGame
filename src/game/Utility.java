@@ -20,6 +20,9 @@ public class Utility {
 			"Water"			// 7
 	};
 	
+	// This will be what is used to set difficulty using the options menu.
+	public static int customDifficulty = 3;
+	
 	/**
 	 * Description: This is used to check for user input, then clear the screen.
 	 * 
@@ -286,6 +289,12 @@ public class Utility {
 		
 	}
 	
+	/**
+	 * Description: This will check to see if the user loses the game. Applies to all tiers.
+	 * 
+	 * @param game is the current instance of the game
+	 * @return returns a true or false as to whether or not the game is over. False means the game was lost, True means it's still going.
+	 */
 	public static boolean gameLost(Planet game) {
 		// End game if any of the values reaches <= 0
 				if(game.getAir() <= 1 || game.getAnimals() <= 1 || game.getCarnivores() <= 1
@@ -313,21 +322,16 @@ public class Utility {
 		
 		// Tier 1 upgrade. If the user meets 50 in each property, upgrade from tier 1 to tier 2.
 		if(game.getTier() == 1 && game.getAir() >= 50 && game.getLand() >= 50 && game.getWater() >= 50){
-			game = new Planet(2);
-			//TODO Change this to a script message instead.
-			System.out.println("You upgraded Terra junior from Tier 1 to Tier 2. Congratulations!");
+			game = new Planet(2, customDifficulty);
+			Scripts.tierUpgrade(1);
 		// Tier 2 upgrade. If the user meets 50 in each property, upgrade from tier 2 to tier 3.
 		} else if(game.getTier() == 2 && game.getCarnivores() >= 50 && game.getHerbivores() >= 50 && game.getPlants() >= 50 && game.getWater() >= 50) {
-			game = new Planet(3);
-			//TODO Change this to a script message instead.
-			System.out.println("You upgraded Terra Junior from Tier 2 to Tier 3. Congratulations!");
+			game = new Planet(3, customDifficulty);
+			Scripts.tierUpgrade(2);
 		// If the user reaches 50 in each property at tier 3, they win the game. Run the WinGame script.
 		} else if(game.getTier() == 3 && game.getAir() >= 50 && game.getAnimals() >= 50 && game.getHumans() >= 50 && game.getPlants() >= 50 && game.getWater() >= 50) {
 			game = null;
-			//TODO Change this to a script message instead.
-			System.out.println("You reached the end of the game.");
 		}
-		//TODO: As with the comment above, create new planet at specific tier.
 		
 		return game;
 		

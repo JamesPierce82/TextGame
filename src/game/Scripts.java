@@ -249,4 +249,45 @@ public class Scripts {
 		}
 	}
 
+	public static void tierUpgrade(int starterTier) {
+
+		switch(starterTier){
+		case 1:
+			Utility.clear();
+			Utility.clear();
+			System.out.println(" You upgraded Terra junior from Tier 1 to Tier 2. Congratulations!");
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			break;
+		case 2:
+			Utility.clear();
+			Utility.clear();
+			System.out.println(" You upgraded Terra Junior from Tier 2 to Tier 3. Congratulations!");
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			break;
+		case 3:
+			Utility.clear();
+			Utility.clear();
+			System.out.println(" You reached the end of the game.");
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			break;
+		}
+		
+
+		
+		
+		
+	}
+
 }
