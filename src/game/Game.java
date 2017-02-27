@@ -27,7 +27,7 @@ public class Game {
 		userInput = input.nextLine();
 		userInput = Utility.menuParser(userInput);
 //		System.out.println(game);
-		game = Utility.menuSelect(userInput, game);
+		game = Utility.menuSelect(userInput, game, input);
 		
 		}while(!userInput.equals("5"));
 		
@@ -43,12 +43,11 @@ public class Game {
 	 * 
 	 * @param game is the current instance of the game
 	 */
-	public static Planet run(Planet game) {
+	public static Planet run(Planet game, Scanner keyboard) {
 		
 		// Declare variables
 		String input = "";
 		boolean isRunning = true;
-		Scanner keyboard = new Scanner(System.in);
 		
 		do{
 
@@ -66,7 +65,7 @@ public class Game {
 			/* This code will check to see if the user has "won" the tier. If so, upgrade the planet.
 			 * If they are on tier 3, produce win message.
 			 */
-			game = Utility.planetUpgrade(game);
+			game = Utility.planetUpgrade(game, keyboard);
 			
 		}while(isRunning && !input.equals("menu") && (game != null));
 		

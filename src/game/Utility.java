@@ -20,6 +20,8 @@ public class Utility {
 			"Water"			// 7
 	};
 	
+	private static int BASE_INCREASE = 15;
+	
 	// This will be what is used to set difficulty using the options menu.
 	public static int customDifficulty = 3;
 	
@@ -91,7 +93,7 @@ public class Utility {
 	 * @param userInput is the input the user entered
 	 * @param game is the existing instance of the game. May or may not be null
 	 */
-	public static Planet menuSelect(String userInput, Planet game) {
+	public static Planet menuSelect(String userInput, Planet game, Scanner input) {
 		switch(userInput) {
 		case "1":
 			/* Creates a new game using empty constructor.
@@ -99,7 +101,7 @@ public class Utility {
 			 * 
 			 */   
 			game = new Planet(1, customDifficulty);
-			game = Game.run(game);
+			game = Game.run(game, input);
 			break;
 		case "2":
 			// Load a game
@@ -111,10 +113,12 @@ public class Utility {
 			break;
 		case "4":
 			// Open the Difficulty Menu
-			Utility.difficultyMenu();
+			Utility.difficultyMenu(input);
+			break;
+		case "5":
 			break;
 		case "6":
-			game = Game.run(game);
+			game = Game.run(game, input);
 			break;
 		default:
 			// Default
@@ -128,20 +132,22 @@ public class Utility {
 	/**
 	 * Description: This will allow the user to change the difficulty setting of the game.
 	 */
-	private static void difficultyMenu() {
+	private static void difficultyMenu(Scanner input) {
 		// Declare variables
-		Scanner input2 = new Scanner(System.in);
 		String userInput;
 		
-			Scripts.difficultyMenu();
-			
-			// Get menu input from user
-			userInput = input2.nextLine();
-			customDifficulty = Utility.difficultyParser(userInput);
-			
-//			input2.close();
+		Scripts.difficultyMenu();
+		
+		// Get menu input from user
+		userInput = input.nextLine();
+		customDifficulty = Utility.difficultyParser(userInput);
 	}
 	
+	/**
+	 * Description: This will take the users input for difficulty and return an integer value
+	 * @param userInput the string the user entered
+	 * @return is the new difficulty we want to set for the game
+	 */
 	private static int difficultyParser(String userInput) {
 		int newDifficulty = 0;
 		
@@ -175,7 +181,9 @@ public class Utility {
 	 * @param string is the name of the stub we are currently accessing
 	 */
 	private static void stub(String string) {
-		System.out.println("This is the " + string + " stub.\n\n");
+		Utility.clear();
+		Utility.clear();
+		Scripts.powerLoss(string);
 		
 	}
 	
@@ -204,13 +212,13 @@ public class Utility {
 			
 			switch(userInput){
 			case "air":
-				game.setAir(game.getAir() + 10);
+				game.setAir(game.getAir() + BASE_INCREASE);
 				break;
 			case "land":
-				game.setLand(game.getLand() + 10);
+				game.setLand(game.getLand() + BASE_INCREASE);
 				break;
 			case "water":
-				game.setWater(game.getWater() + 10);
+				game.setWater(game.getWater() + BASE_INCREASE);
 				break;
 			default:
 				
@@ -221,16 +229,16 @@ public class Utility {
 			
 			switch(userInput){
 			case "carnivores":
-				game.setCarnivores(game.getCarnivores() + 10);
+				game.setCarnivores(game.getCarnivores() + BASE_INCREASE);
 				break;
 			case "herbivores":
-				game.setHerbivores(game.getHerbivores() + 10);
+				game.setHerbivores(game.getHerbivores() + BASE_INCREASE);
 				break;
 			case "plants":
-				game.setPlants(game.getPlants() + 10);
+				game.setPlants(game.getPlants() + BASE_INCREASE);
 				break;
 			case "water":
-				game.setWater(game.getWater() + 10);
+				game.setWater(game.getWater() + BASE_INCREASE);
 				break;
 			default:
 				
@@ -241,19 +249,19 @@ public class Utility {
 			
 			switch(userInput){
 			case "air":
-				game.setAir(game.getAir() + 10);
+				game.setAir(game.getAir() + BASE_INCREASE);
 				break;
 			case "animals":
-				game.setAnimals(game.getAnimals() + 10);
+				game.setAnimals(game.getAnimals() + BASE_INCREASE);
 				break;
 			case "humans":
-				game.setHumans(game.getHumans() + 10);
+				game.setHumans(game.getHumans() + BASE_INCREASE);
 				break;
 			case "plants":
-				game.setPlants(game.getPlants() + 10);
+				game.setPlants(game.getPlants() + BASE_INCREASE);
 				break;
 			case "water":
-				game.setWater(game.getWater() + 10);
+				game.setWater(game.getWater() + BASE_INCREASE);
 				break;
 			default:
 				
@@ -360,21 +368,23 @@ public class Utility {
 	/**
 	 * Description: This will check to see if the planet meets the criteria to upgrade the planet.
 	 * @param game is the current instance of the game
-	 * @return
+	 * @return will return the current instance of the game. This will have been modified based on the tier beaten.
 	 */
-	public static Planet planetUpgrade(Planet game) {
+	public static Planet planetUpgrade(Planet game, Scanner input) {
 		
 		// Tier 1 upgrade. If the user meets 50 in each property, upgrade from tier 1 to tier 2.
 		if(game.getTier() == 1 && game.getAir() >= 50 && game.getLand() >= 50 && game.getWater() >= 50){
 			game = new Planet(2, customDifficulty);
-			Scripts.tierUpgrade(1);
+			Scripts.tierUpgrade(1, input);
 		// Tier 2 upgrade. If the user meets 50 in each property, upgrade from tier 2 to tier 3.
 		} else if(game.getTier() == 2 && game.getCarnivores() >= 50 && game.getHerbivores() >= 50 && game.getPlants() >= 50 && game.getWater() >= 50) {
 			game = new Planet(3, customDifficulty);
-			Scripts.tierUpgrade(2);
+			Scripts.tierUpgrade(2, input);
 		// If the user reaches 50 in each property at tier 3, they win the game. Run the WinGame script.
 		} else if(game.getTier() == 3 && game.getAir() >= 50 && game.getAnimals() >= 50 && game.getHumans() >= 50 && game.getPlants() >= 50 && game.getWater() >= 50) {
 			game = null;
+			// Run the win game script
+			Scripts.tierUpgrade(3, input);
 		}
 		
 		return game;

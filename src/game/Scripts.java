@@ -262,7 +262,7 @@ public class Scripts {
 	 * 
 	 * @param starterTier is the tier you just beat.
 	 */
-	public static void tierUpgrade(int starterTier) {
+	public static void tierUpgrade(int starterTier, Scanner input) {
 
 		switch(starterTier){
 		case 1:
@@ -326,6 +326,10 @@ public class Scripts {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			Utility.clear();
+			Utility.clear();
+			System.out.println(" Press enter to return to the main menu ...");
+			Utility.scriptContinue(input);
 			break;
 		}
 		
@@ -347,6 +351,38 @@ public class Scripts {
 				+ " 1: (Hard)\n\n"
 				+ " 2: (Medium)\n\n"
 				+ " 3: (Easy)\n\n");
+	}
+
+	/**
+	 * Description: This is the power loss message
+	 */
+	public static void powerLoss(String string) {
+		System.out.println(" This is the " + string + " stub.\n\n");
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println(" We are currently rebuilding this portion of the OS after a\n\n");
+		
+		System.out.println(" particularily bad power loss.\n\n\n\n");
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println(" Sorry for the inconvenience.");
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		Utility.clear();
+		Utility.clear();
+		System.out.println(" Press enter to continue ...");
+		
+		
+		
 	}
 
 }
