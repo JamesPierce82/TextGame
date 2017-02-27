@@ -66,7 +66,7 @@ public class Utility {
 			userInput = "3";
 			break;
 		case "4":
-		case "options":
+		case "difficulty":
 			// convert answers to 4
 			userInput = "4";
 			break;
@@ -98,7 +98,7 @@ public class Utility {
 			 * This creates the default game, which uses easy difficulty.
 			 * 
 			 */   
-			game = new Planet();
+			game = new Planet(1, customDifficulty);
 			game = Game.run(game);
 			break;
 		case "2":
@@ -110,8 +110,8 @@ public class Utility {
 			Utility.stub("Save a game");
 			break;
 		case "4":
-			// Open the Options
-			Utility.stub("Open Options");
+			// Open the Difficulty Menu
+			Utility.difficultyMenu();
 			break;
 		case "6":
 			game = Game.run(game);
@@ -123,6 +123,50 @@ public class Utility {
 		}
 		return game;
 		
+	}
+
+	/**
+	 * Description: This will allow the user to change the difficulty setting of the game.
+	 */
+	private static void difficultyMenu() {
+		// Declare variables
+		Scanner input2 = new Scanner(System.in);
+		String userInput;
+		
+			Scripts.difficultyMenu();
+			
+			// Get menu input from user
+			userInput = input2.nextLine();
+			customDifficulty = Utility.difficultyParser(userInput);
+			
+//			input2.close();
+	}
+	
+	private static int difficultyParser(String userInput) {
+		int newDifficulty = 0;
+		
+		userInput = userInput.toLowerCase();
+		
+		switch(userInput){
+		case "1":
+		case "hard":
+			// convert answers to 1
+			newDifficulty = 1;
+			break;
+		case "2":
+		case "medium":
+			// convert answers to 2
+			newDifficulty = 2;
+			break;
+		case "3":
+		case "easy":
+			// convert answers to 3
+			newDifficulty = 3;
+			break;
+		default:
+			newDifficulty = 3;
+		}
+		return newDifficulty;
 	}
 
 	/**

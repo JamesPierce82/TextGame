@@ -32,7 +32,7 @@ public class Game {
 		}while(!userInput.equals("5"));
 		
 		Scripts.exit();
-		
+		input.close();
 	}
 	
 	/**
@@ -44,9 +44,12 @@ public class Game {
 	 * @param game is the current instance of the game
 	 */
 	public static Planet run(Planet game) {
+		
+		// Declare variables
 		String input = "";
 		boolean isRunning = true;
 		Scanner keyboard = new Scanner(System.in);
+		
 		do{
 
 			// This will output the game content to the screen
@@ -65,15 +68,15 @@ public class Game {
 			 */
 			game = Utility.planetUpgrade(game);
 			
-		}while(isRunning && !input.equals("exit") && (game != null));
+		}while(isRunning && !input.equals("menu") && (game != null));
+		
 		Utility.clear();
 		// If the player lost, delete the current instance of the game.
 		if(isRunning == false){
 			game = null;
 		}
+//		keyboard.close();
 		return game;
 	}
-	
-	
 
 }

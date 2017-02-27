@@ -52,12 +52,14 @@ public class Scripts {
 	 * 				the user to attempt the continue option.
 	 */
 	public static void menu(Planet game){
+		Utility.clear();
+		Utility.clear();
 		System.out.println(" Welcome to Extalia OS.\n\n"
 				+ " Please select one of the following options:\n\n\n\n"
 				+ " 1: Start a (New) Game\n\n"
 				+ " 2: (Load) a Saved Game\n\n"
 				+ " 3: (Save) your Current Game\n\n"
-				+ " 4: Change your Game (Options)\n\n"
+				+ " 4: Change your Game (Difficulty)\n\n"
 				+ " 5: (Quit) the game\n\n");
 		/* This allows the user to continue their game if they choose to go to the
 		 * menu from within a game. 
@@ -106,10 +108,10 @@ public class Scripts {
 		if(game.getTier() == 1){
 			System.out.println(" You are currently monitoring " + Utility.displayNames[0]
 							+ ", " + Utility.displayNames[5] + ", " + Utility.displayNames[7]
-							+ ".\n\n Type in the property you want to work with this year and the value will increase.\n\n"
-							+ " Keep in mind that these values will increase and decrease over time based on the values\n\n"
-							+ " of the other properties. If you can keep these properties above a certain threshhold for\n\n"
-							+ " a period of time, Terra Junior will move to the next phase of it's terraforming process.\n\n");
+							+ ".\n\n Type in the property you want to work with and the value will increase.\n\n"
+							+ " Keep in mind that these values will decrease over time. If you can get these properties \n\n"
+							+ " above a certain threshhold, Terra Junior will move to the next phase of it's terraforming process.\n\n"
+							+ " Type menu to return to the main menu.\n\n");
 			System.out.println("  _________________________________________________________________");
 			
 			// First property
@@ -133,10 +135,10 @@ public class Scripts {
 		} else if(game.getTier() == 2){
 			System.out.println(" You are currently monitoring " + Utility.displayNames[2]
 					+ ", " + Utility.displayNames[3] + ", " + Utility.displayNames[6] + ", " + Utility.displayNames[7]
-					+ ".\n\n Type in the property you want to work with this year and the value will increase.\n\n"
-					+ " Keep in mind that these values will increase and decrease over time based on the values\n\n"
-					+ " of the other properties. If you can keep these properties above a certain threshhold for\n\n"
-					+ " a period of time, Terra Junior will move to the next phase of it's terraforming process.\n\n");
+					+ ".\n\n Type in the property you want to work with and the value will increase.\n\n"
+					+ " Keep in mind that these values will decrease over time. If you can get these properties \n\n"
+					+ " above a certain threshhold, Terra Junior will move to the next phase of it's terraforming process.\n\n"
+					+ " Type menu to return to the main menu.\n\n");
 	System.out.println("  _________________________________________________________________");
 			
 			// First property
@@ -166,10 +168,10 @@ public class Scripts {
 		} else if(game.getTier() == 3){
 			System.out.println(" You are currently monitoring " + Utility.displayNames[1]
 					+ ", " + Utility.displayNames[4] + ", " + Utility.displayNames[6] + ", " + Utility.displayNames[7]
-					+ ".\n\n Type in the property you want to work with this year and the value will increase.\n\n"
-					+ " Keep in mind that these values will increase and decrease over time based on the values\n\n"
-					+ " of the other properties. If you can keep these properties above a certain threshhold for\n\n"
-					+ " a period of time, Terra Junior will move to the next phase of it's terraforming process.\n\n");
+					+ ".\n\n Type in the property you want to work with and the value will increase.\n\n"
+					+ " Keep in mind that these values will decrease over time. If you can get these properties \n\n"
+					+ " above a certain threshhold, Terra Junior will move to the next phase of it's terraforming process.\n\n"
+					+ " Type menu to return to the main menu.\n\n");
 	System.out.println("  _________________________________________________________________");
 			
 			// First property
@@ -206,9 +208,12 @@ public class Scripts {
 		System.out.println("___________________________");
 	}
 	
+	/**
+	 * Description: This is the game over message.
+	 */
 	public static void gameOver() {
 		Utility.clear();
-		System.out.println(" You destroyed planet #30ffe456 aka Terra Junior, our last hope of survival.");
+		System.out.println(" You destroyed planet #30ffe456 aka Terra Junior, our last hope of survival.\n\n");
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
@@ -247,17 +252,41 @@ public class Scripts {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		Utility.clear();
+		Utility.clear();
+		System.out.println(" Press enter to continue ...");
 	}
 
+	/**
+	 * Description: This will be used to output messages between tiers.
+	 * 
+	 * @param starterTier is the tier you just beat.
+	 */
 	public static void tierUpgrade(int starterTier) {
 
 		switch(starterTier){
 		case 1:
 			Utility.clear();
 			Utility.clear();
-			System.out.println(" You upgraded Terra junior from Tier 1 to Tier 2. Congratulations!");
+			System.out.println(" You upgraded Terra junior from Tier 1 to Tier 2. Congratulations!(3)");
 			try {
-				Thread.sleep(3000);
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			Utility.clear();
+			Utility.clear();
+			System.out.println(" You upgraded Terra junior from Tier 1 to Tier 2. Congratulations!(2)");
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			Utility.clear();
+			Utility.clear();
+			System.out.println(" You upgraded Terra junior from Tier 1 to Tier 2. Congratulations!(1)");
+			try {
+				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -265,9 +294,25 @@ public class Scripts {
 		case 2:
 			Utility.clear();
 			Utility.clear();
-			System.out.println(" You upgraded Terra Junior from Tier 2 to Tier 3. Congratulations!");
+			System.out.println(" You upgraded Terra junior from Tier 2 to Tier 3. Congratulations!(3)");
 			try {
-				Thread.sleep(3000);
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			Utility.clear();
+			Utility.clear();
+			System.out.println(" You upgraded Terra junior from Tier 2 to Tier 3. Congratulations!(2)");
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			Utility.clear();
+			Utility.clear();
+			System.out.println(" You upgraded Terra junior from Tier 2 to Tier 3. Congratulations!(1)");
+			try {
+				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -275,7 +320,7 @@ public class Scripts {
 		case 3:
 			Utility.clear();
 			Utility.clear();
-			System.out.println(" You reached the end of the game.");
+			System.out.println(" You reached the end of the game.\n\n");
 			try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
@@ -288,6 +333,20 @@ public class Scripts {
 		
 		
 		
+	}
+
+	/**
+	 * Description: This will output the difficulty selection menu
+	 */
+	public static void difficultyMenu() {
+		
+		Utility.clear();
+		Utility.clear();
+		System.out.println(" THIS WILL ONLY TAKE EFFECT IF YOU RESTART THE GAME OR UPON REACHING THE NEXT TIER.\n\n"
+				+ " Please select one of the following options:\n\n\n\n"
+				+ " 1: (Hard)\n\n"
+				+ " 2: (Medium)\n\n"
+				+ " 3: (Easy)\n\n");
 	}
 
 }

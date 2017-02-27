@@ -11,7 +11,7 @@ public class Planet {
 	private int tier = 1;
 	
 	// This is the constant to adjust base difficulty
-	private int BASE_STATS = 10;
+	private int BASE_STATS = 30;
 	
 	/* This will allow the user to set the difficulty of the game
 	 * 3 = easy
@@ -57,14 +57,16 @@ public class Planet {
 	public Planet(){
 		this.tier = 1;
 		this.difficulty = 3;
-		this.setAll(BASE_STATS * this.difficulty);
+//		this.setAll(BASE_STATS * this.difficulty);
+		this.setAll(BASE_STATS);
 	}
 	
 	// Tier and Difficulty Constructor
 		public Planet(int tier, int difficulty){
 			this.tier = tier;
 			this.difficulty = difficulty;
-			this.setAll(BASE_STATS * this.difficulty);
+//			this.setAll(BASE_STATS * this.difficulty);
+			this.setAll(BASE_STATS);
 		}
 	
 	// Non-Boolean Constructor
