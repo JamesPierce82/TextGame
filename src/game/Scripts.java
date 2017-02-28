@@ -107,8 +107,7 @@ public class Scripts {
 		if(game.getTier() == 1){
 			System.out.println(" Type in the property you want to work with and the value will increase.\n\n"
 							+ " Keep in mind that these values will decrease over time. If you can get these properties \n\n"
-							+ " above a certain threshhold, Terra Junior will move to the next phase of it's terraforming process.\n\n"
-							+ " Type menu to return to the main menu.\n\n"
+							+ " above a value of 50, Terra Junior will move to the next phase of it's terraforming process.\n\n\n\n"
 							+ "You are currently monitoring " + Utility.displayNames[0]
 							+ ", " + Utility.displayNames[5] + ", " + Utility.displayNames[7] + ". Type in menu to return to the main menu");
 			System.out.println("____________________________________________________________________________________________________________");
@@ -135,8 +134,7 @@ public class Scripts {
 		} else if(game.getTier() == 2){
 			System.out.println(" Type in the property you want to work with and the value will increase.\n\n"
 					+ " Keep in mind that these values will decrease over time. If you can get these properties \n\n"
-					+ " above a certain threshhold, Terra Junior will move to the next phase of it's terraforming process.\n\n"
-					+ " Type menu to return to the main menu.\n\n"
+					+ " above a value of 50, Terra Junior will move to the next phase of it's terraforming process.\n\n\n\n"
 					+ "You are currently monitoring " + Utility.displayNames[2]
 					+ ", " + Utility.displayNames[3] + ", " + Utility.displayNames[6] + ", " + Utility.displayNames[7] + ". Type in menu to return to the main menu");
 			System.out.println("____________________________________________________________________________________________________________");
@@ -169,8 +167,7 @@ public class Scripts {
 		} else if(game.getTier() == 3){
 			System.out.println(" Type in the property you want to work with and the value will increase.\n\n"
 					+ " Keep in mind that these values will decrease over time. If you can get these properties \n\n"
-					+ " above a certain threshhold, Terra Junior will move to the next phase of it's terraforming process.\n\n"
-					+ " Type menu to return to the main menu.\n\n"
+					+ " above a value of 50, Terra Junior will move to the next phase of it's terraforming process.\n\n\n\n"
 					+ "You are currently monitoring " + Utility.displayNames[1]
 					+ ", " + Utility.displayNames[4] + ", " + Utility.displayNames[6] + ", " + Utility.displayNames[7] + ". Type in menu to return to the main menu");
 			System.out.println("____________________________________________________________________________________________________________");
@@ -253,6 +250,7 @@ public class Scripts {
 			Utility.clear();
 			System.out.println(" You upgraded Terra junior from Tier 1 to Tier 2. Congratulations!(1)");
 			Utility.sleep(1000);
+			Scripts.tierOneUpgrade(input);
 			break;
 		case 2:
 			Utility.clear();
@@ -264,14 +262,13 @@ public class Scripts {
 			Utility.clear();
 			System.out.println(" You upgraded Terra junior from Tier 2 to Tier 3. Congratulations!(1)");
 			Utility.sleep(1000);
+			Scripts.tierTwoUpgrade(input);
 			break;
 		case 3:
 			Utility.clear();
 			System.out.println(" You reached the end of the game.\n\n");
 			Utility.sleep(3000);
-			Utility.clear();
-			System.out.println(" Press enter to return to the main menu ...");
-			Utility.scriptContinue(input);
+			Scripts.tierThreeUpgrade(input);
 			break;
 		}
 		
@@ -320,13 +317,125 @@ public class Scripts {
 	public static void newGame(Scanner input) {
 		Utility.clear();
 		System.out.println(" (Jardon)\t So. This is Terra Junior.\n\n");
-		Utility.sleep(100);
-		System.out.println(" \n\n");
-		System.out.println(" \n\n");
-		System.out.println(" \n\n\n\n");
+		Utility.sleep(2000);
+		System.out.println(" (Teiran)\t You know they want us to call it planet #30ffe456 right?\n\n");
+		Utility.sleep(4000);
+		System.out.println(" (Jardon)\t Teiran, the only thing we're going to do by calling it that\n\n"
+						+ "\t\t is passing the time faster. Which we can do in the cryo-tubes anyways.\n\n");
+		Utility.sleep(6000);
+		System.out.println(" (Teiran)\t Yeah, well... What did you call it again?\n\n");
+		Utility.sleep(3000);
+		System.out.println(" (Jardon)\t Terra Junior.\n\n\n\n");
 		System.out.println("Press the enter key to continue ...");
 		Utility.scriptContinue(input);
 		
+		Utility.clear();
+		System.out.println(" (Teiran)\t Alright, Terra Junior it is. Did mission control send us\n\n"
+						+ "\t\t our briefing yet?\n\n");
+		Utility.sleep(5000);
+		System.out.println(" (Jardon)\t Yeah, it's up on the console behind you. Looks like we're to start\n\n"
+						+ "\t\t with a blank slate, and work our way up from there.\n\n");
+		Utility.sleep(6000);
+		System.out.println(" (Teiran)\t Ah, great. My favourite part of this job is working with rocks.\n\n"
+						+ "\t\t I hate when things start to get complicated.\n\n");
+		Utility.sleep(6000);
+		System.out.println(" (Jardon)\t I think you got into the wrong profession Teiran. Everything we do\n\n"
+						+ "\t\t is complicated.\n\n");
+		Utility.sleep(4500);
+		System.out.println(" (Teiran)\t Yeah, but I didn't exactly pick this gig. I signed up because I\n\n"
+						+ "\t\t wanted to help create new planets, not terraform old ones!\n\n\n\n");
+		System.out.println("Press the enter key to continue ...");
+		Utility.scriptContinue(input);
+		
+		Utility.clear();
+		System.out.println(" (Jardon)\t Unforunately you didn't get that job. And, even more unfortunately\n\n"
+						+ "\t\t for me, I'm now stuck with you. It's time to get to work.\n\n");
+		Utility.sleep(6000);
+		System.out.println(" (Teiran)\t Alright, alright, fine. Where do you want me to start?\n\n");
+		Utility.sleep(4000);
+		System.out.println(" (Jardon)\t Start where the briefing said. Air, Land, and Water. Without all\n\n"
+						+ "\t\t three, we might as well not even bother with the rest.\n\n\n\n");
+		System.out.println("Press the enter key to continue ...");
+		Utility.scriptContinue(input);
+		
+	}
+	
+	/**
+	 * Description: This is the exchange between scientists after beating tier 1.
+	 * 
+	 * @param input is the keyboard input
+	 */
+	public static void tierOneUpgrade(Scanner input){
+		Utility.clear();
+		System.out.println(" (Jardon)\t How is Terra Junior looking?\n\n");
+		Utility.sleep(3000);
+		System.out.println(" (Teiran)\t Beautiful. Or at least, as beautiful as a ball of rock, water and\n\n"
+						+ "\t\t atmosphere can.\n\n");
+		Utility.sleep(5000);
+		System.out.println(" (Jardon)\t Good. Mission Control sent us a data packet with information about\n\n"
+						+ "\t\t what to do next. Hope you're ready for some 'complicated' work.\n\n");
+		Utility.sleep(6500);
+		System.out.println(" (Teiran)\t Ha. Ha. Ha. I may not enjoy this part of the work, but that doesn't\n\n"
+						+ "\t\t mean I'm incapable of doing a good job. I'll show you what I'm capable of!\n\n\n\n");
+		System.out.println("Press the enter key to continue ...");
+		Utility.scriptContinue(input);
+		
+	}
+	
+	/**
+	 * Description: This is the exchange between scientists after beating tier 2.
+	 * 
+	 * @param input is the keyboard input
+	 */
+	public static void tierTwoUpgrade(Scanner input){
+		Utility.clear();
+		System.out.println(" (Teiran)\t See? I told you I'm good at what I do!\n\n");
+		Utility.sleep(3000);
+		System.out.println(" (Jardon)\t No one said you weren't. Keep this up and I'll put in a good word for you;\n\n"
+						+ "\t\t Get you a transfer out of my hair and into that New Planet department you want\n\n"
+						+ "\t\t to be in so badly.\n\n");
+		Utility.sleep(9000);
+		System.out.println(" (Teiran)\t Are you sure? I thought nobody changes departments...\n\n");
+		Utility.sleep(3000);
+		System.out.println(" (Jardon)\t Did nobody tell you who I am? I'm the head of Terraforming.\n\n"
+						+ "\t\t I can get anyone moved anywhere around here. Well, relatively speaking of course.\n\n"
+						+ "\t\t It's not like they're making new planets near here...\n\n");
+		Utility.sleep(9000);
+		System.out.println(" (Teiran)\t Seriously?!? Alright, I'm up for the challenge. What happens if I fail?\n\n");
+		Utility.sleep(3000);
+		System.out.println(" (Jardon)\t Nothing. I fire you. Then I shoot your escape pod into the sun.\n\n");
+		Utility.sleep(3000);
+		System.out.println(" (Teiran)\t . . .\n\n\n\n");
+		System.out.println("Press the enter key to continue ...");
+		Utility.scriptContinue(input);
+		
+		System.out.println(" (Jardon)\t That was a joke.\n\n");
+		Utility.sleep(1500);
+		System.out.println(" (Teiran)\t Haha. Okay. Well, I should probably get back to work.\n\n"
+						+ "\t\t Sounds like I have a transfer to earn.\n\n\n\n");
+		System.out.println("Press the enter key to continue ...");
+		Utility.scriptContinue(input);
+	}
+	
+	public static void tierThreeUpgrade(Scanner input){
+		Utility.clear();
+		System.out.println(" (Teiran)\t Wait, so. . . did I do it?\n\n");
+		Utility.sleep(3000);
+		System.out.println(" (Jardon)\t It looks like you did. Congratulations. You can shut down the console\n\n"
+						+ "\t\t and I will head back to my office to write up the transfer papers for you.\n\n");
+		Utility.sleep(6000);
+		System.out.println(" (Teiran)\t So you weren't joking before? I didn't think you actually meant that.\n\n");
+		Utility.sleep(3000);
+		System.out.println(" (Jardon)\t You did good work. And I don't want you around to bug me anymore, so\n\n"
+						+ "\t\t it's a win-win for both of us.\n\n");
+		Utility.sleep(6000);
+		System.out.println(" (Teiran)\t I'M GOING TO MAKE NEW PLANETS!!!! WHOOOOOO!!\n\n");
+		Utility.sleep(3000);
+		System.out.println(" (Jardon)\t It's not too late to put you in the escape pod.\n\n");
+		Utility.sleep(3000);
+		System.out.println(" (Teiran)\t Sorry.\n\n\n\n");
+		System.out.println("Press the enter key to continue ...");
+		Utility.scriptContinue(input);
 	}
 
 }

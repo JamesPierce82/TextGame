@@ -112,6 +112,13 @@ public class Utility {
 			 * 
 			 */   
 			game = new Planet(1, customDifficulty);
+			// *** Use this area to test script timing
+//			Scripts.tierOneUpgrade(input);
+//			Scripts.tierTwoUpgrade(input);
+			
+			// *** Use this area to test script timing
+			
+			// This is the game's opening dialogue.
 			Scripts.newGame(input);
 			game = Game.run(game, input);
 			break;
