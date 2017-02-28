@@ -106,13 +106,14 @@ public class Scripts {
 		
 
 		if(game.getTier() == 1){
-			System.out.println(" You are currently monitoring " + Utility.displayNames[0]
-							+ ", " + Utility.displayNames[5] + ", " + Utility.displayNames[7]
-							+ ".\n\n Type in the property you want to work with and the value will increase.\n\n"
+			System.out.println(" Type in the property you want to work with and the value will increase.\n\n"
 							+ " Keep in mind that these values will decrease over time. If you can get these properties \n\n"
 							+ " above a certain threshhold, Terra Junior will move to the next phase of it's terraforming process.\n\n"
-							+ " Type menu to return to the main menu.\n\n");
-			System.out.println("  _________________________________________________________________");
+							+ " Type menu to return to the main menu.\n\n"
+							+ "You are currently monitoring " + Utility.displayNames[0]
+							+ ", " + Utility.displayNames[5] + ", " + Utility.displayNames[7] + ". Type in menu to return to the main menu");
+			System.out.println("____________________________________________________________________________________________________________");
+			System.out.println("  _______________________");
 			
 			// First property
 			System.out.println(" |\t\t\t|");
@@ -133,13 +134,14 @@ public class Scripts {
 			
 			System.out.println(" |______________________|");
 		} else if(game.getTier() == 2){
-			System.out.println(" You are currently monitoring " + Utility.displayNames[2]
-					+ ", " + Utility.displayNames[3] + ", " + Utility.displayNames[6] + ", " + Utility.displayNames[7]
-					+ ".\n\n Type in the property you want to work with and the value will increase.\n\n"
+			System.out.println(" Type in the property you want to work with and the value will increase.\n\n"
 					+ " Keep in mind that these values will decrease over time. If you can get these properties \n\n"
 					+ " above a certain threshhold, Terra Junior will move to the next phase of it's terraforming process.\n\n"
-					+ " Type menu to return to the main menu.\n\n");
-	System.out.println("  _________________________________________________________________");
+					+ " Type menu to return to the main menu.\n\n"
+					+ "You are currently monitoring " + Utility.displayNames[2]
+					+ ", " + Utility.displayNames[3] + ", " + Utility.displayNames[6] + ", " + Utility.displayNames[7] + ". Type in menu to return to the main menu");
+			System.out.println("____________________________________________________________________________________________________________");
+			System.out.println("  _______________________");
 			
 			// First property
 			System.out.println("|\t\t\t|");
@@ -166,13 +168,14 @@ public class Scripts {
 			
 			System.out.println("|_______________________|");
 		} else if(game.getTier() == 3){
-			System.out.println(" You are currently monitoring " + Utility.displayNames[1]
-					+ ", " + Utility.displayNames[4] + ", " + Utility.displayNames[6] + ", " + Utility.displayNames[7]
-					+ ".\n\n Type in the property you want to work with and the value will increase.\n\n"
+			System.out.println(" Type in the property you want to work with and the value will increase.\n\n"
 					+ " Keep in mind that these values will decrease over time. If you can get these properties \n\n"
 					+ " above a certain threshhold, Terra Junior will move to the next phase of it's terraforming process.\n\n"
-					+ " Type menu to return to the main menu.\n\n");
-	System.out.println("  _________________________________________________________________");
+					+ " Type menu to return to the main menu.\n\n"
+					+ "You are currently monitoring " + Utility.displayNames[1]
+					+ ", " + Utility.displayNames[4] + ", " + Utility.displayNames[6] + ", " + Utility.displayNames[7] + ". Type in menu to return to the main menu");
+			System.out.println("____________________________________________________________________________________________________________");
+			System.out.println("  _______________________");
 			
 			// First property
 			System.out.println("|\t\t\t|");
@@ -205,7 +208,7 @@ public class Scripts {
 			
 			System.out.println("|_______________________|");
 		}
-		System.out.println("___________________________");
+		System.out.println("____________________________________________________________________________________________________________");
 	}
 	
 	/**
