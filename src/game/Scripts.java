@@ -11,7 +11,7 @@ public class Scripts {
 	 */
 	public static void opening(Scanner input) {
 		
-		System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+		Utility.clear();
 		System.out.println(" After humanity left earth, we needed\n\n"
 				+ " a new world to call home. We started\n\n"
 				+ " to terraform planets so that they would\n\n"
@@ -52,7 +52,6 @@ public class Scripts {
 	 * 				the user to attempt the continue option.
 	 */
 	public static void menu(Planet game){
-		Utility.clear();
 		Utility.clear();
 		System.out.println(" Welcome to Extalia OS.\n\n"
 				+ " Please select one of the following options:\n\n\n\n"
@@ -217,45 +216,21 @@ public class Scripts {
 	public static void gameOver() {
 		Utility.clear();
 		System.out.println(" You destroyed planet #30ffe456 aka Terra Junior, our last hope of survival.\n\n");
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		Utility.sleep(3000);
 		System.out.println(" Just kidding. Time to find a new planet.");
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		Utility.clear();
+		Utility.sleep(1000);
 		Utility.clear();
 		System.out.println(" GAME OVER\n\n"
 						+ " Return to main menu(3)");
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		Utility.clear(); 
+		Utility.sleep(1000);
 		Utility.clear();
 		System.out.println(" GAME OVER\n\n"
 						+ " Return to main menu(2)");
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		Utility.clear();
+		Utility.sleep(1000);
 		Utility.clear();
 		System.out.println(" GAME OVER\n\n"
 						+ " Return to main menu(1)");
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		Utility.clear();
+		Utility.sleep(1000);
 		Utility.clear();
 		System.out.println(" Press enter to continue ...");
 	}
@@ -270,66 +245,30 @@ public class Scripts {
 		switch(starterTier){
 		case 1:
 			Utility.clear();
-			Utility.clear();
 			System.out.println(" You upgraded Terra junior from Tier 1 to Tier 2. Congratulations!(3)");
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			Utility.clear();
+			Utility.sleep(1000);
 			Utility.clear();
 			System.out.println(" You upgraded Terra junior from Tier 1 to Tier 2. Congratulations!(2)");
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			Utility.clear();
+			Utility.sleep(1000);
 			Utility.clear();
 			System.out.println(" You upgraded Terra junior from Tier 1 to Tier 2. Congratulations!(1)");
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			Utility.sleep(1000);
 			break;
 		case 2:
 			Utility.clear();
-			Utility.clear();
 			System.out.println(" You upgraded Terra junior from Tier 2 to Tier 3. Congratulations!(3)");
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			Utility.clear();
+			Utility.sleep(1000);
 			Utility.clear();
 			System.out.println(" You upgraded Terra junior from Tier 2 to Tier 3. Congratulations!(2)");
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			Utility.clear();
+			Utility.sleep(1000);
 			Utility.clear();
 			System.out.println(" You upgraded Terra junior from Tier 2 to Tier 3. Congratulations!(1)");
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			Utility.sleep(1000);
 			break;
 		case 3:
 			Utility.clear();
-			Utility.clear();
 			System.out.println(" You reached the end of the game.\n\n");
-			try {
-				Thread.sleep(3000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			Utility.clear();
+			Utility.sleep(3000);
 			Utility.clear();
 			System.out.println(" Press enter to return to the main menu ...");
 			Utility.scriptContinue(input);
@@ -348,7 +287,6 @@ public class Scripts {
 	public static void difficultyMenu() {
 		
 		Utility.clear();
-		Utility.clear();
 		System.out.println(" THIS WILL ONLY TAKE EFFECT IF YOU RESTART THE GAME OR UPON REACHING THE NEXT TIER.\n\n"
 				+ " Please select one of the following options:\n\n\n\n"
 				+ " 1: (Hard)\n\n"
@@ -361,30 +299,33 @@ public class Scripts {
 	 */
 	public static void powerLoss(String string) {
 		System.out.println(" This is the " + string + " stub.\n\n");
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		Utility.sleep(2000);
 		System.out.println(" We are currently rebuilding this portion of the OS after a\n\n");
 		
 		System.out.println(" particularily bad power loss.\n\n\n\n");
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		Utility.sleep(2000);
 		System.out.println(" Sorry for the inconvenience.");
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		Utility.clear();
+		Utility.sleep(3000);
 		Utility.clear();
 		System.out.println(" Press enter to continue ...");
 		
 		
+		
+	}
+
+	/**
+	 * Description: This is the opening scene of the game, prior to starting to play.
+	 * @param input is the keyboard input
+	 */
+	public static void newGame(Scanner input) {
+		Utility.clear();
+		System.out.println(" (Jardon)\t So. This is Terra Junior.\n\n");
+		Utility.sleep(100);
+		System.out.println(" \n\n");
+		System.out.println(" \n\n");
+		System.out.println(" \n\n\n\n");
+		System.out.println("Press the enter key to continue ...");
+		Utility.scriptContinue(input);
 		
 	}
 

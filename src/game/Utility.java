@@ -37,8 +37,19 @@ public class Utility {
 		}
 	}
 	
+	/**
+	 * Description: This will clear the screen by moving all content off of the screen
+	 */
 	public static void clear(){
-		System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+		System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	}
+	
+	public static void sleep(int wait){
+		try {
+			Thread.sleep(wait);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -101,6 +112,7 @@ public class Utility {
 			 * 
 			 */   
 			game = new Planet(1, customDifficulty);
+			Scripts.newGame(input);
 			game = Game.run(game, input);
 			break;
 		case "2":
@@ -181,7 +193,6 @@ public class Utility {
 	 * @param string is the name of the stub we are currently accessing
 	 */
 	private static void stub(String string) {
-		Utility.clear();
 		Utility.clear();
 		Scripts.powerLoss(string);
 		
